@@ -52,8 +52,12 @@
   --cian-op:rgba(0,229,255,.08);
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --sans:'Archivo',system-ui,-apple-system,sans-serif;
-  --max:1180px;
+  --max:1280px;
   --r:16px;
+  /* Le avisa al navegador que la página es oscura. Sin esto, el menú
+     desplegable de un select lo dibuja Windows con SUS colores y sale
+     blanco sobre blanco. También arregla la barra de scroll. */
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
@@ -138,45 +142,59 @@ a{color:inherit}
 .acc{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .garantia{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:13.5px;color:var(--tx-3)}
 
-/* ── El panel del hero, hecho en HTML ── */
-.escena{position:relative;perspective:1400px}
+/* ── El tablero del hero. Es HTML, no una imagen: nítido en cualquier
+      pantalla, editable, y pesa una fracción de un PNG. ── */
+.escena{position:relative}
 .escena::after{
-  content:"";position:absolute;left:50%;bottom:-46px;transform:translateX(-50%);
-  width:86%;height:150px;pointer-events:none;
-  background:radial-gradient(ellipse at center, rgba(0,229,255,.30), rgba(0,229,255,.05) 45%, transparent 72%);
-  filter:blur(14px);
+  content:"";position:absolute;left:50%;bottom:-40px;transform:translateX(-50%);
+  width:88%;height:130px;pointer-events:none;
+  background:radial-gradient(ellipse at center, rgba(0,229,255,.26), rgba(0,229,255,.04) 46%, transparent 72%);
+  filter:blur(16px);
 }
-.monitor{
-  position:relative;background:linear-gradient(160deg,#0C1B26,#081219);
-  border:1px solid var(--borde-cian);border-radius:16px;overflow:hidden;
-  box-shadow:0 40px 90px -34px rgba(0,0,0,.95),0 0 0 1px rgba(0,229,255,.05);
-  transform:rotateY(-9deg) rotateX(3deg);transform-style:preserve-3d;
+.tablero{
+  position:relative;background:linear-gradient(158deg,#0B1822,#060E14);
+  border:1px solid var(--borde-cian);border-radius:18px;overflow:hidden;
+  box-shadow:0 44px 100px -38px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.05);
+  display:grid;grid-template-columns:132px 1fr;font-size:10px;
 }
-.mon-barra{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--borde);background:rgba(255,255,255,.02)}
-.mon-barra i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.14)}
-.mon-barra span{margin-left:8px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--tx-3)}
-.mon-cuerpo{display:grid;grid-template-columns:112px 1fr;min-height:280px}
-.mon-lat{border-right:1px solid var(--borde);padding:14px 10px;display:grid;gap:3px;align-content:start}
-.mon-lat b{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--tx-3);padding:6px 8px;font-weight:500}
-.mon-lat a{font-size:11.5px;color:var(--tx-2);padding:6px 9px;border-radius:7px;text-decoration:none}
-.mon-lat a.on{background:var(--cian-op);color:var(--cian);border:1px solid var(--borde-cian)}
-.mon-main{padding:14px}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.kpi{background:rgba(255,255,255,.028);border:1px solid var(--borde);border-radius:10px;padding:10px 11px}
-.kpi small{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;color:var(--tx-3);text-transform:uppercase}
-.kpi b{display:block;font-size:15px;font-weight:700;margin-top:4px;letter-spacing:-.02em}
-.kpi u{text-decoration:none;font-size:9.5px;color:var(--cian);font-family:var(--mono)}
-.graf{background:rgba(255,255,255,.02);border:1px solid var(--borde);border-radius:10px;padding:11px}
-.graf-t{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--tx-3);text-transform:uppercase;margin-bottom:8px}
-.tarjeta-ia{
-  position:absolute;right:-16px;bottom:-26px;width:262px;z-index:3;
-  background:linear-gradient(150deg,#10222E,#0A151D);border:1px solid var(--borde-cian);border-radius:15px;padding:15px 16px;
-  box-shadow:0 30px 60px -22px rgba(0,0,0,.95);
-}
-.tarjeta-ia h4{margin:0 0 3px;font-size:14px;font-weight:700}
-.tarjeta-ia p{margin:0 0 10px;font-size:11.5px;color:var(--tx-3)}
-.tarjeta-ia ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.tarjeta-ia li{font-size:11.5px;color:var(--tx-2);display:flex;gap:7px;align-items:center}
+.tb-lat{border-right:1px solid var(--borde);padding:14px 10px;display:flex;flex-direction:column;gap:2px}
+.tb-marca{display:flex;align-items:center;gap:8px;padding:2px 6px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;font-weight:600}
+.tb-marca svg{width:19px;height:19px;color:var(--cian);flex:none}
+.tb-lat b{font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;color:var(--tx-3);padding:6px;font-weight:500}
+.tb-lat a{display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--tx-2);padding:6.5px 8px;border-radius:7px;text-decoration:none}
+.tb-lat a svg{width:13px;height:13px;flex:none;opacity:.8}
+.tb-lat a.on{background:linear-gradient(135deg,rgba(0,229,255,.16),rgba(46,125,255,.07));color:var(--cian);border:1px solid var(--borde-cian);padding:5.5px 7px}
+.tb-cuerpo{padding:12px;display:grid;gap:9px;align-content:start}
+.tb-top{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--tx-3)}
+.tb-top svg{width:13px;height:13px}
+.tb-top i{width:7px;height:7px;border-radius:50%;background:#3DDC97;box-shadow:0 0 8px #3DDC97}
+
+.tb-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tb-g3{display:grid;grid-template-columns:1.9fr 1fr;gap:8px}
+.tb-g2{display:grid;grid-template-columns:1.45fr 1fr;gap:8px}
+.tb-c{background:rgba(255,255,255,.028);border:1px solid var(--borde);border-radius:10px;padding:9px 10px}
+.tb-c small{display:block;font-family:var(--mono);font-size:7.6px;letter-spacing:.14em;color:var(--tx-3);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-c b{display:block;font-size:14.5px;font-weight:700;margin-top:3px;letter-spacing:-.025em;white-space:nowrap}
+.tb-c u{text-decoration:none;font-size:8.6px;font-family:var(--mono);color:#3DDC97}
+.tb-c u.baja{color:var(--tx-3)}
+.tb-t{font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:var(--tx-3);text-transform:uppercase;margin-bottom:7px}
+.barrita{height:3px;border-radius:2px;background:rgba(255,255,255,.09);margin-top:6px;overflow:hidden}
+.barrita span{display:block;height:100%;border-radius:2px;background:var(--grad)}
+.barrita.amb span{background:linear-gradient(90deg,#FFB454,#FF8A3D)}
+
+.leyenda{display:grid;gap:4px;margin-top:2px}
+.leyenda div{display:flex;align-items:center;gap:6px;font-size:8.6px;color:var(--tx-2)}
+.leyenda i{width:6px;height:6px;border-radius:2px;flex:none}
+.leyenda u{text-decoration:none;margin-left:auto;font-family:var(--mono);color:var(--tx-3)}
+
+.tb-ia{background:linear-gradient(140deg,rgba(0,229,255,.09),rgba(46,125,255,.04));border:1px solid var(--borde-cian);border-radius:10px;padding:11px;display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:center}
+.orbe{width:64px;height:64px;position:relative;display:grid;place-items:center}
+.orbe::before,.orbe::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(0,229,255,.3)}
+.orbe::before{inset:0}
+.orbe::after{inset:10px;border-color:rgba(0,229,255,.5)}
+.orbe svg{width:24px;height:24px;color:var(--cian);position:relative;z-index:1;filter:drop-shadow(0 0 8px rgba(0,229,255,.8))}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.chips span{font-size:8.4px;border:1px solid var(--borde);background:rgba(255,255,255,.03);border-radius:999px;padding:4px 8px;color:var(--tx-2)}
 
 /* Secciones */
 section{padding:74px 0;border-top:1px solid var(--borde)}
@@ -280,6 +298,10 @@ section{padding:74px 0;border-top:1px solid var(--borde)}
 .campo textarea{min-height:96px;resize:vertical;padding-top:14px}
 .campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EAF6F9' stroke-opacity='.45' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:17px;padding-right:40px}
 .campo input::placeholder,.campo textarea::placeholder{color:var(--tx-3)}
+/* Firefox y algunos Chrome en Windows ignoran color-scheme para las
+   opciones: se pintan a mano para que no queden blancas. */
+.campo select option{background:#0C1620;color:var(--tx)}
+.campo select option:checked{background:#123043}
 .campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--cian);box-shadow:0 0 0 3px var(--cian-op)}
 .dos{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .barra-envio{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;
@@ -308,8 +330,16 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
 
 @media(max-width:960px){
   .hero{grid-template-columns:1fr;gap:52px;padding:44px 0 56px}
-  .monitor{transform:none}
-  .tarjeta-ia{position:static;width:auto;margin-top:14px}
+
+  /* En pantalla chica el tablero se reordena: el menú lateral pasa arriba
+     y las filas de tarjetas se apilan de a dos. */
+  .tablero{grid-template-columns:1fr}
+  .tb-lat{flex-direction:row;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--borde);gap:5px;align-items:center}
+  .tb-lat b{display:none}
+  .tb-marca{padding:0 8px 0 4px}
+  .tb-lat a:not(.on){display:none}
+  .tb-g4{grid-template-columns:1fr 1fr}
+  .tb-g3,.tb-g2{grid-template-columns:1fr}
   .escena::after{display:none}
   .difs,.planes,.casos,.form-grid{grid-template-columns:1fr}
   .pasos{grid-template-columns:1fr 1fr}
@@ -354,52 +384,101 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
     <p class="garantia"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg> Sin compromiso. Te digo también si no te sirve.</p>
   </div>
 
-  <!-- El panel: no es una imagen, es HTML. Nítido en cualquier pantalla. -->
+  <!-- El tablero: HTML puro, ni una imagen. Los números son de ejemplo. -->
   <div class="escena" aria-hidden="true">
-    <div class="monitor">
-      <div class="mon-barra"><i></i><i></i><i></i><span>CYRON</span></div>
-      <div class="mon-cuerpo">
-        <nav class="mon-lat">
-          <b>MENÚ</b>
-          <a class="on">Inicio</a><a>Ventas</a><a>Productos</a><a>Compras</a>
-          <a>Stock</a><a>Clientes</a><a>Cierres</a><a>Estadísticas</a>
-        </nav>
-        <div class="mon-main">
-          <div class="kpis">
-            <div class="kpi"><small>Vendido hoy</small><b>$1.350.000</b><u>+12% vs ayer</u></div>
-            <div class="kpi"><small>Margen real</small><b>38,4%</b><u>sobre costo</u></div>
-            <div class="kpi"><small>Falta facturar</small><b>$230.000</b><u>para el equilibrio</u></div>
-          </div>
-          <div class="graf">
-            <div class="graf-t">Ventas de los últimos 30 días</div>
-            <svg viewBox="0 0 320 76" width="100%" height="76" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#00E5FF" stop-opacity=".38"/>
-                  <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,58 C22,52 34,40 52,44 C72,49 84,26 104,30 C126,35 136,18 158,24 C180,30 190,44 210,38 C232,31 242,14 264,20 C286,26 300,36 320,30 L320,76 L0,76 Z" fill="url(#gl)"/>
-              <path d="M0,58 C22,52 34,40 52,44 C72,49 84,26 104,30 C126,35 136,18 158,24 C180,30 190,44 210,38 C232,31 242,14 264,20 C286,26 300,36 320,30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="264" cy="20" r="3.4" fill="#00E5FF"/>
+    <div class="tablero">
+      <nav class="tb-lat">
+        <div class="tb-marca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.7 5v10L12 22l-8.7-5V7z"/><path d="M15.5 9.2A4.2 4.2 0 1015.5 15"/></svg>CYRON</div>
+        <b>MENÚ</b>
+        <a class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Inicio</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3H5l2.2 11h11l1.8-7H6"/></svg>Ventas</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3.5 7L12 12l8.5-5M12 12v10"/></svg>Productos</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l1.5 8H5z"/><path d="M16 7l2-4h3"/></svg>Compras</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 11h18"/></svg>Stock</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><path d="M16 5.5a3.2 3.2 0 010 5.6M17.5 20a6 6 0 00-2-4.4"/></svg>Clientes</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>Reportes</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V11l6 3v7"/></svg>Sucursales</a>
+        <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Configuración</a>
+      </nav>
+
+      <div class="tb-cuerpo">
+        <div class="tb-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><i></i></div>
+
+        <div class="tb-g4">
+          <div class="tb-c"><small>Ventas hoy</small><b>$1.842.650</b><u>+18,6% vs ayer</u></div>
+          <div class="tb-c"><small>Ticket promedio</small><b>$8.245</b><u>+12,3% vs ayer</u></div>
+          <div class="tb-c"><small>Margen bruto</small><b>35,7%</b><u>+2,1% vs ayer</u></div>
+          <div class="tb-c"><small>Órdenes</small><b>236</b><u>+15 vs ayer</u></div>
+        </div>
+
+        <div class="tb-g3">
+          <div class="tb-c">
+            <div class="tb-t">Ventas de los últimos 30 días</div>
+            <svg viewBox="0 0 360 96" width="100%" height="96" preserveAspectRatio="none" role="img" aria-label="Gráfico de ventas">
+              <defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#00E5FF" stop-opacity=".40"/>
+                <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,.06)" stroke-width="1">
+                <path d="M0 20h360M0 44h360M0 68h360M0 92h360"/></g>
+              <path d="M0,74 C18,70 26,58 44,62 C62,66 70,50 88,54 C106,58 112,42 132,48 C152,54 158,64 176,58 C196,51 202,34 222,40 C242,46 248,56 266,48 C286,39 292,22 312,26 C332,30 344,38 360,32 L360,96 L0,96 Z" fill="url(#gl)"/>
+              <path d="M0,74 C18,70 26,58 44,62 C62,66 70,50 88,54 C106,58 112,42 132,48 C152,54 158,64 176,58 C196,51 202,34 222,40 C242,46 248,56 266,48 C286,39 292,22 312,26 C332,30 344,38 360,32" fill="none" stroke="#00E5FF" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="312" cy="26" r="3.6" fill="#00E5FF"/>
+              <circle cx="312" cy="26" r="7" fill="#00E5FF" opacity=".22"/>
             </svg>
+            <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.4px;color:var(--tx-3);margin-top:3px">
+              <span>14 MAY</span><span>22 MAY</span><span>30 MAY</span><span>7 JUN</span><span>13 JUN</span></div>
           </div>
-          <div class="kpis" style="margin:10px 0 0;grid-template-columns:1fr 1fr">
-            <div class="kpi"><small>Beltrán</small><b>$820.000</b><u>61% del total</u></div>
-            <div class="kpi"><small>Guaymallén</small><b>$530.000</b><u>39% del total</u></div>
+          <div class="tb-c">
+            <div class="tb-t">Por categoría</div>
+            <div style="display:flex;gap:9px;align-items:center">
+              <svg viewBox="0 0 42 42" width="60" height="60" style="flex:none" role="img" aria-label="Ventas por categoría">
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="6"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#00E5FF" stroke-width="6" stroke-dasharray="40 60" stroke-dashoffset="25"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#2E7DFF" stroke-width="6" stroke-dasharray="28 72" stroke-dashoffset="-15"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#3DDC97" stroke-width="6" stroke-dasharray="18 82" stroke-dashoffset="-43"/>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#FFB454" stroke-width="6" stroke-dasharray="9 91" stroke-dashoffset="-61"/>
+              </svg>
+              <div class="leyenda">
+                <div><i style="background:#00E5FF"></i>Hamburguesas<u>40%</u></div>
+                <div><i style="background:#2E7DFF"></i>Bebidas<u>28%</u></div>
+                <div><i style="background:#3DDC97"></i>Papas<u>18%</u></div>
+                <div><i style="background:#FFB454"></i>Promos<u>9%</u></div>
+                <div><i style="background:rgba(255,255,255,.25)"></i>Otros<u>5%</u></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tb-g4">
+          <div class="tb-c"><small>Facturado (mes)</small><b>$48.906.350</b><u>+22,4% vs mes anterior</u></div>
+          <div class="tb-c"><small>Cobrado</small><b>$43.210.500</b><u>88,4% del total</u><div class="barrita"><span style="width:88%"></span></div></div>
+          <div class="tb-c"><small>A cobrar</small><b>$5.695.850</b><u class="baja">11,6% del total</u><div class="barrita amb"><span style="width:12%"></span></div></div>
+          <div class="tb-c"><small>Facturación ARCA</small><b style="font-size:11.5px;color:#3DDC97">Todo al día</b><u>CAE habilitado</u></div>
+        </div>
+
+        <div class="tb-g2">
+          <div class="tb-ia">
+            <div class="orbe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.7 5v10L12 22l-8.7-5V7z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+            <div>
+              <div class="tb-t" style="color:var(--cian);margin-bottom:3px">Asistente Cyron</div>
+              <div style="font-size:10.5px;color:var(--tx-2)">¿Qué querés saber de tu negocio?</div>
+              <div class="chips">
+                <span>¿Qué producto me deja más?</span>
+                <span>¿Cuánto vender para no perder?</span>
+                <span>¿Qué sucursal vende más?</span>
+              </div>
+            </div>
+          </div>
+          <div class="tb-c">
+            <div class="tb-t">Punto de equilibrio</div>
+            <div style="font-size:9px;color:var(--tx-3)">Tenés que vender</div>
+            <b style="display:block;font-size:17px;font-weight:700;letter-spacing:-.03em;margin:2px 0">$26.800.000</b>
+            <div style="font-size:8.6px;color:var(--tx-3);line-height:1.4">por mes para cubrir todos los costos</div>
+            <div class="barrita" style="margin-top:8px"><span style="width:68%"></span></div>
+            <u style="text-decoration:none;font-family:var(--mono);font-size:8.4px;color:#3DDC97;display:block;margin-top:5px">68% del objetivo</u>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="tarjeta-ia">
-      <h4>Asistente Cyron</h4>
-      <p>¿Qué querés saber de tu negocio?</p>
-      <ul>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Qué producto me deja más</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Cuánto falta para el equilibrio</li>
-        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Qué comprar esta semana</li>
-      </ul>
     </div>
   </div>
 </header>
@@ -585,7 +664,7 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
             <input id="nombre" name="nombre" autocomplete="name" placeholder="Ej: Tomás Migliore" required/></div></div>
           <div class="campo"><label for="negocio">Nombre del negocio</label>
             <div class="envol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg>
-            <input id="negocio" name="negocio" autocomplete="organization" placeholder="Ej: D'Burgers"/></div></div>
+            <input id="negocio" name="negocio" autocomplete="organization" placeholder="Ej: Belavita Dietética"/></div></div>
         </div>
         <div class="dos">
           <div class="campo"><label for="rubro">Rubro</label>
@@ -710,6 +789,15 @@ var MODULOS=[
  {n:'Etiquetas de góndola',r:['dietetica','comercio','ferre'],d:'Precio impreso, sin planilla.',
   t:'La etiqueta sale de la misma impresora del ticket, con el precio actual.',
   l:['Precio y nombre del producto','Marca de oferta cuando corresponde','Se imprime desde el catálogo']},
+ {n:'Sugerencias de venta',r:['todos'],d:'Qué ofrecerle a cada cliente.',
+  t:'Mientras cobrás, el sistema propone qué sumar al ticket según lo que se llevan juntos de verdad. Y después mide si funcionó.',
+  l:['Venta cruzada: qué se lleva junto con qué','Sustituto cuando no hay stock de lo que pidió','Tercera unidad con descuento','Combos con precio de paquete','Panel de impacto: cuánto sumó cada sugerencia']},
+ {n:'Modo mostrador',r:['todos'],d:'Una pantalla sola para atender.',
+  t:'El vendedor entra con su PIN y ve solo lo suyo: vender, cobrar y caja. Ni compras, ni márgenes, ni el resto del negocio.',
+  l:['Ingreso con PIN, sin usuario ni contraseña','Solo lo que hace falta atrás del mostrador','Segunda venta en paralelo en la misma computadora','Ayuda buscable, sin salir de la pantalla']},
+ {n:'Tienda online y delivery',r:['todos','gastro'],d:'Los pedidos entran solos.',
+  t:'Los pedidos de la tienda y de las apps de delivery llegan al sistema, con la rentabilidad real ya calculada.',
+  l:['Pedidos de la tienda online','Catálogo sincronizado con las apps','Rentabilidad real con la comisión descontada','Los pedidos a pérdida salen marcados en rojo']},
  {n:'Costos y márgenes',r:['todos'],d:'Cuánto te deja cada cosa.',
   t:'El margen real de cada producto, no el que creías. Es parte de Cyron Full.',
   l:['Margen por producto y por rubro','Qué conviene empujar','Capital inmovilizado en mercadería','Alerta cuando un precio quedó por debajo del margen']},
@@ -746,6 +834,9 @@ var ICONOS={
  'Fraccionamiento':'<path d="M12 3v18M3 8h18"/><rect x="3" y="8" width="18" height="13" rx="2"/>',
  'Vencimientos':'<circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/>',
  'Etiquetas de góndola':'<path d="M3 12V4h8l9 9-8 8-9-9z"/><circle cx="7.5" cy="7.5" r="1.4"/>',
+ 'Sugerencias de venta':'<path d="M12 3l2.2 5.6L20 9.6l-4.2 3.9 1.2 5.8L12 16.6 7 19.3l1.2-5.8L4 9.6l5.8-1z"/>',
+ 'Modo mostrador':'<rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+ 'Tienda online y delivery':'<circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"/>',
  'Costos y márgenes':'<path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/>',
  'Punto de equilibrio':'<path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/>',
  'Rotación':'<path d="M20 12a8 8 0 11-2.3-5.6"/><path d="M20 3v5h-5"/>',
