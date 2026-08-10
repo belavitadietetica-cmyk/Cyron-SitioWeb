@@ -196,6 +196,87 @@ a{color:inherit}
 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .chips span{font-size:8.4px;border:1px solid var(--borde);background:rgba(255,255,255,.03);border-radius:999px;padding:4px 8px;color:var(--tx-2)}
 
+/* ── Simulación del mostrador ── */
+.demo{display:grid;grid-template-columns:1fr 340px;gap:32px;margin-top:36px;align-items:start}
+.pos{background:linear-gradient(158deg,#0B1822,#060E14);border:1px solid var(--borde-cian);border-radius:18px;overflow:hidden;
+  box-shadow:0 40px 90px -38px rgba(0,0,0,.95)}
+.pos-top{display:flex;align-items:center;gap:9px;padding:12px 16px;border-bottom:1px solid var(--borde);background:rgba(255,255,255,.02)}
+.pos-top .p{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--tx-3)}
+.pos-top .vivo{margin-left:auto;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:#3DDC97}
+.pos-top .vivo i{width:6px;height:6px;border-radius:50%;background:#3DDC97;box-shadow:0 0 8px #3DDC97;animation:latir 1.6s infinite}
+@keyframes latir{50%{opacity:.35}}
+.pos-cuerpo{display:grid;grid-template-columns:1fr 232px;min-height:330px}
+.pos-izq{padding:15px;border-right:1px solid var(--borde);display:flex;flex-direction:column}
+.pos-buscar{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.03);border:1px solid var(--borde);border-radius:10px;padding:10px 13px;font-size:12.5px;color:var(--tx-3)}
+.pos-buscar svg{width:15px;height:15px;flex:none}
+.pos-buscar b{color:var(--tx);font-weight:500}
+.cursor{display:inline-block;width:1.5px;height:14px;background:var(--cian);vertical-align:-2px;animation:parpadeo 1s steps(1) infinite}
+@keyframes parpadeo{50%{opacity:0}}
+.pos-items{margin-top:12px;flex:1;display:flex;flex-direction:column;gap:7px}
+.it{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.028);border:1px solid var(--borde);border-radius:10px;padding:10px 12px;
+  opacity:0;transform:translateY(-7px);transition:opacity .32s ease,transform .32s ease}
+.it.ver{opacity:1;transform:none}
+.it .n{flex:1;min-width:0;font-size:13px}
+.it .n span{display:block;font-family:var(--mono);font-size:9.5px;color:var(--tx-3);margin-top:2px}
+.it .m{font-family:var(--mono);font-size:13px;font-weight:500;white-space:nowrap}
+.it.oferta{border-color:rgba(255,180,84,.4);background:rgba(255,180,84,.06)}
+.it .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;padding:3px 7px;border-radius:5px;background:rgba(255,180,84,.14);color:#FFB454;border:1px solid rgba(255,180,84,.3)}
+.it .tach{text-decoration:line-through;color:var(--tx-3);font-size:11px;margin-right:6px}
+.pos-der{padding:15px;display:flex;flex-direction:column}
+.sug{border:1px solid var(--borde-cian);background:linear-gradient(150deg,rgba(0,229,255,.10),rgba(46,125,255,.04));border-radius:12px;padding:13px;
+  opacity:0;transform:scale(.96);transition:opacity .34s ease,transform .34s ease}
+.sug.ver{opacity:1;transform:none}
+.sug .et{font-family:var(--mono);font-size:8.6px;letter-spacing:.16em;color:var(--cian);text-transform:uppercase}
+.sug h4{margin:7px 0 3px;font-size:14px;font-weight:700}
+.sug p{margin:0 0 10px;font-size:11.5px;color:var(--tx-2);line-height:1.5}
+.sug .bt{display:flex;gap:7px}
+.sug .bt span{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;padding:7px 11px;border-radius:7px;text-transform:uppercase}
+.sug .si{background:var(--grad);color:#03131a;font-weight:600}
+.sug .no{border:1px solid var(--borde);color:var(--tx-3)}
+.pos-total{margin-top:auto;padding-top:13px;border-top:1px solid var(--borde)}
+.pos-total .l{display:flex;justify-content:space-between;font-size:11.5px;color:var(--tx-3);padding:3px 0}
+.pos-total .t{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:10px;border-top:1px solid var(--borde)}
+.pos-total .t span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--tx-3)}
+.pos-total .t b{font-size:23px;font-weight:700;letter-spacing:-.03em}
+.demo-pasos{list-style:none;padding:0;margin:0}
+.demo-pasos li{display:flex;gap:13px;padding:14px 0;border-top:1px solid var(--borde);opacity:.38;transition:opacity .3s}
+.demo-pasos li:first-child{border-top:none}
+.demo-pasos li.act{opacity:1}
+.demo-pasos b{display:block;font-size:15px;font-weight:600;margin-bottom:2px}
+.demo-pasos span{font-size:13.5px;color:var(--tx-3);line-height:1.5}
+.demo-ctrl{display:flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--tx-3)}
+.demo-ctrl button{background:rgba(255,255,255,.03);border:1px solid var(--borde);color:var(--tx-2);border-radius:8px;padding:8px 13px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.demo-ctrl button:hover{border-color:var(--borde-cian);color:var(--tx)}
+.demo-ctrl button:focus-visible{outline:3px solid var(--cian);outline-offset:2px}
+
+/* ── Calculadora ── */
+.calc{display:grid;grid-template-columns:1fr 1.06fr;gap:34px;margin-top:36px;align-items:start}
+.calc-form{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--r);padding:28px 26px}
+.calc-c{margin-bottom:22px}
+.calc-c label{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-3);margin-bottom:9px;gap:12px}
+.calc-c label b{font-family:var(--sans);font-size:16px;color:var(--cian);letter-spacing:0;font-weight:700}
+.calc-c input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:5px;border-radius:3px;background:rgba(255,255,255,.1);outline:none}
+.calc-c input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--grad);cursor:pointer;box-shadow:0 0 14px rgba(0,229,255,.7)}
+.calc-c input[type=range]::-moz-range-thumb{width:20px;height:20px;border:none;border-radius:50%;background:#00E5FF;cursor:pointer}
+.calc-c input[type=range]:focus-visible{outline:3px solid var(--cian);outline-offset:4px}
+.calc-c .ayuda{font-size:12.5px;color:var(--tx-3);margin-top:8px;line-height:1.5}
+.calc-res{background:linear-gradient(165deg,var(--tarjeta-2),var(--tarjeta));border:1px solid var(--borde-cian);border-radius:var(--r);padding:28px 26px}
+.fuga{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--borde)}
+.fuga:last-of-type{border-bottom:none}
+.fuga .d{flex:1;min-width:0}
+.fuga .d b{display:block;font-size:15px;font-weight:600}
+.fuga .d span{font-size:12.5px;color:var(--tx-3);line-height:1.45}
+.fuga .v{font-family:var(--mono);font-size:16px;font-weight:600;white-space:nowrap;color:#FFB454}
+.total-fuga{margin-top:18px;padding-top:20px;border-top:1px solid var(--borde-cian)}
+.total-fuga small{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx-3)}
+.total-fuga b{display:block;font-size:clamp(30px,4.4vw,42px);font-weight:800;letter-spacing:-.035em;margin:5px 0 3px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.total-fuga span{font-size:13.5px;color:var(--tx-2)}
+.cierre-calc{display:flex;gap:13px;align-items:flex-start;margin-top:20px;padding-top:20px;border-top:1px solid var(--borde);font-size:14.5px;color:var(--tx-2);line-height:1.6}
+
+@media(max-width:960px){.demo,.calc{grid-template-columns:1fr}.pos-cuerpo{grid-template-columns:1fr}.pos-izq{border-right:none;border-bottom:1px solid var(--borde)}}
+
 /* Secciones */
 section{padding:74px 0;border-top:1px solid var(--borde)}
 .enc{max-width:62ch}
@@ -526,6 +607,63 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
   </div>
 </section>
 
+<!-- ══ SIMULACIÓN DEL MOSTRADOR ══ -->
+<section class="wrap" id="mostrador">
+  <div class="enc">
+    <span class="rot">Así se ve atendiendo</span>
+    <h2>El sistema te sugiere mientras cobrás.</h2>
+    <p class="bajada">Esto no es un video: es el mostrador funcionando. Mirá lo que pasa cuando entra una venta.</p>
+  </div>
+
+  <div class="demo">
+    <div class="pos">
+      <div class="pos-top">
+        <span class="p">MODO MOSTRADOR</span>
+        <span class="vivo"><i></i>EN VIVO</span>
+      </div>
+      <div class="pos-cuerpo">
+        <div class="pos-izq">
+          <div class="pos-buscar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>
+            <span><b id="pos-txt"></b><i class="cursor"></i></span>
+          </div>
+          <div class="pos-items" id="pos-items"></div>
+        </div>
+        <div class="pos-der">
+          <div class="sug" id="pos-sug">
+            <span class="et" id="sug-et">Sugerencia</span>
+            <h4 id="sug-tit"></h4>
+            <p id="sug-txt"></p>
+            <div class="bt"><span class="si">Agregar</span><span class="no">No</span></div>
+          </div>
+          <div class="pos-total">
+            <div class="l"><span>Artículos</span><span id="pos-n">0</span></div>
+            <div class="l"><span>Descuentos</span><span id="pos-desc">$0</span></div>
+            <div class="t"><span>TOTAL</span><b id="pos-total">$0</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <ul class="demo-pasos" id="demo-pasos">
+        <li data-p="0"><span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg></span>
+          <div><b>Buscás y agregás</b><span>Por código de barras o escribiendo el nombre.</span></div></li>
+        <li data-p="1"><span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 5.6L20 9.6l-4.2 3.9 1.2 5.8L12 16.6 7 19.3l1.2-5.8L4 9.6l5.8-1z"/></svg></span>
+          <div><b>Te sugiere qué sumar</b><span>Según lo que tus clientes se llevan juntos de verdad, no según una regla inventada.</span></div></li>
+        <li data-p="2"><span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg></span>
+          <div><b>Avisa lo que está por vencer</b><span>Y le aplica el descuento solo, para que salga antes de tener que tirarlo.</span></div></li>
+        <li data-p="3"><span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4M9 13h6M9 17h4"/></svg></span>
+          <div><b>Cobrás y sale el ticket</b><span>Con factura si corresponde, y el stock ya descontado.</span></div></li>
+      </ul>
+      <div class="demo-ctrl">
+        <button type="button" id="demo-btn" aria-label="Pausar la simulación">Pausar</button>
+        <span id="demo-est">Reproduciendo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ DIFERENCIALES ══ -->
 <section id="rubros" class="wrap">
   <div class="enc">
@@ -554,6 +692,71 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
       <p>Si se corta internet, se sigue vendiendo: la venta queda guardada en la computadora y sube sola cuando vuelve la señal. Una caída de conexión no puede ser el motivo por el que no cobrás.</p>
     </div>
   </div>
+</section>
+
+<!-- ══ LA CUENTA ══ -->
+<section class="wrap" id="cuenta">
+  <div class="enc">
+    <span class="rot">La cuenta</span>
+    <h2>No es lo que sale el sistema. Es lo que te cuesta no tenerlo.</h2>
+    <p class="bajada">Movés los números y hacés la cuenta con los tuyos, no con los míos. Nadie mejor que vos sabe cuánto se te va.</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-form">
+      <div class="calc-c">
+        <label for="c-fact">Lo que facturás por mes <b id="v-fact">$8.000.000</b></label>
+        <input type="range" id="c-fact" min="1000000" max="60000000" step="500000" value="8000000"/>
+        <p class="ayuda">Sumando todas tus sucursales.</p>
+      </div>
+      <div class="calc-c">
+        <label for="c-margen">Tu margen bruto <b id="v-margen">35%</b></label>
+        <input type="range" id="c-margen" min="10" max="70" step="1" value="35"/>
+        <p class="ayuda">Lo que te queda después de pagar la mercadería. Si no lo sabés con precisión, ese ya es el primer dato que Cyron te da.</p>
+      </div>
+      <div class="calc-c">
+        <label for="c-fuga">Mercadería que se va sin registrarse <b id="v-fuga">2%</b></label>
+        <input type="range" id="c-fuga" min="0" max="8" step="0.5" value="2"/>
+        <p class="ayuda">Lo que sale y no queda anotado en ningún lado. Ponelo vos: si creés que en tu negocio no pasa, bajalo a cero.</p>
+      </div>
+      <div class="calc-c" style="margin-bottom:0">
+        <label for="c-precio">Productos vendidos por debajo de tu margen <b id="v-precio">6%</b></label>
+        <input type="range" id="c-precio" min="0" max="25" step="1" value="6"/>
+        <p class="ayuda">Precios que quedaron viejos cuando subió el costo. Cyron los marca uno por uno.</p>
+      </div>
+    </div>
+
+    <div class="calc-res">
+      <div class="fuga">
+        <span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M8 12l3 3 5-5"/></svg></span>
+        <div class="d"><b>Mercadería sin registrar</b><span>Sale del local y nadie lo sabe</span></div>
+        <span class="v" id="r-fuga">—</span>
+      </div>
+      <div class="fuga">
+        <span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+        <div class="d"><b>Margen perdido en precios viejos</b><span>Vendido por menos de lo que corresponde</span></div>
+        <span class="v" id="r-precio">—</span>
+      </div>
+      <div class="fuga">
+        <span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg></span>
+        <div class="d"><b>Tu tiempo</b><span>Cargar, contar y cerrar a mano</span></div>
+        <span class="v" id="r-horas" style="color:var(--cian)">—</span>
+      </div>
+
+      <div class="total-fuga">
+        <small>Se te va por año, en plata</small>
+        <b id="r-anual">—</b>
+        <span id="r-mes">—</span>
+      </div>
+
+      <div class="cierre-calc">
+        <span class="icobox chico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg></span>
+        <span id="r-cierre">Con recuperar una parte de eso, el sistema ya se pagó. Y lo que sobra queda en el negocio.</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="bajada" style="margin-top:22px;font-size:14px;color:var(--tx-3)">Los porcentajes los ponés vos. No hay ninguna promesa acá: es tu propia cuenta con tus propios números.</p>
 </section>
 
 <!-- ══ PLANES ══ -->
@@ -905,6 +1108,127 @@ det.addEventListener('click',function(e){
   if(e.target===det||e.target.closest('[data-cerrar]'))cerrar();
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&det.classList.contains('abierto'))cerrar();});
+
+// ══ SIMULACIÓN DEL MOSTRADOR ══
+// Es el mostrador funcionando, no un video: pesa como una foto y se ve
+// nítido en cualquier pantalla. Si el visitante pidió menos movimiento,
+// se muestra el estado final quieto y no se anima nada.
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var items=$('pos-items'), sug=$('pos-sug'), pasos=$('demo-pasos'), btn=$('demo-btn'), est=$('demo-est');
+  if(!items)return;
+  var plata=function(n){return '$'+n.toLocaleString('es-AR');};
+
+  var GUION=[
+    {p:0, escribe:'cheeseburger', item:{n:'Cheeseburger',s:'2 un x $14.000',m:28000}},
+    {p:1, sug:{et:'Suelen llevarlo junto',t:'Papas medianas',x:'68% de los que llevan Cheeseburger se llevan papas. Sumaría $9.200 al ticket.'}},
+    {p:1, acepta:true, item:{n:'Papas medianas',s:'1 un x $9.200',m:9200}},
+    {p:2, sug:{et:'Vence en 3 días',t:'Gaseosa 1.5L',x:'Quedan 6 unidades. Con 20% de descuento sale antes de tener que tirarla.'}},
+    {p:2, acepta:true, item:{n:'Gaseosa 1.5L',s:'1 un · vence en 3 días',m:4160,antes:5200,oferta:true}},
+    {p:3, cobra:true},
+  ];
+
+  var i=0, t=null, andando=true;
+  function limpiar(){ items.innerHTML=''; sug.classList.remove('ver'); pintarTotal(); marcar(0); }
+  function marcar(p){
+    [].forEach.call(pasos.children,function(li){ li.classList.toggle('act', +li.dataset.p===p); });
+  }
+  function pintarTotal(){
+    var n=0,tot=0,desc=0;
+    [].forEach.call(items.children,function(el){
+      n+=+el.dataset.cant; tot+=+el.dataset.monto; desc+=+(el.dataset.desc||0);
+    });
+    $('pos-n').textContent=n; $('pos-desc').textContent=plata(desc); $('pos-total').textContent=plata(tot);
+  }
+  function agregar(it){
+    var el=document.createElement('div');
+    el.className='it'+(it.oferta?' oferta':'');
+    el.dataset.cant=1; el.dataset.monto=it.m; el.dataset.desc=it.antes?(it.antes-it.m):0;
+    el.innerHTML='<div class="n">'+it.n+'<span>'+it.s+'</span></div>'+
+      (it.oferta?'<span class="tag">-20%</span>':'')+
+      '<div class="m">'+(it.antes?'<i class="tach">'+plata(it.antes)+'</i>':'')+plata(it.m)+'</div>';
+    items.appendChild(el);
+    requestAnimationFrame(function(){ el.classList.add('ver'); });
+    pintarTotal();
+  }
+  function paso(){
+    if(!andando)return;
+    if(i>=GUION.length){ i=0; t=setTimeout(function(){limpiar();paso();},2100); return; }
+    var g=GUION[i++];
+    marcar(g.p);
+    if(g.escribe){ $('pos-txt').textContent=g.escribe; }
+    if(g.sug){
+      $('sug-et').textContent=g.sug.et; $('sug-tit').textContent=g.sug.t; $('sug-txt').textContent=g.sug.x;
+      sug.classList.add('ver');
+    }
+    if(g.acepta){ sug.classList.remove('ver'); }
+    if(g.item){ agregar(g.item); }
+    if(g.cobra){ $('pos-txt').textContent='cobrando…'; }
+    t=setTimeout(paso, g.sug?2300:(g.cobra?2600:1500));
+  }
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(quieto){
+    andando=false; btn.style.display='none'; est.textContent='Animación desactivada por tu configuración';
+    GUION.forEach(function(g){ if(g.item)agregar(g.item); });
+    $('pos-txt').textContent='cheeseburger'; marcar(3);
+  } else {
+    limpiar(); paso();
+    btn.addEventListener('click',function(){
+      andando=!andando;
+      btn.textContent=andando?'Pausar':'Reanudar';
+      est.textContent=andando?'Reproduciendo':'En pausa';
+      if(andando)paso(); else clearTimeout(t);
+    });
+  }
+})();
+
+// ══ LA CUENTA ══
+// Los porcentajes los pone el visitante. No hay ninguna promesa nuestra
+// adentro: es su propia cuenta con sus propios números, y por eso es más
+// difícil de discutir que cualquier estadística que pudiéramos inventar.
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var fact=$('c-fact'); if(!fact)return;
+  var margen=$('c-margen'), fuga=$('c-fuga'), precio=$('c-precio');
+  var pesos=function(n){return '$'+Math.round(n).toLocaleString('es-AR');};
+  var corto=function(n){
+    if(n>=1e6)return '$'+(n/1e6).toFixed(n>=1e7?0:1).replace('.',',')+' M';
+    if(n>=1e3)return '$'+Math.round(n/1e3)+' mil';
+    return pesos(n);
+  };
+  function calcular(){
+    var F=+fact.value, M=+margen.value/100, P=+fuga.value/100, V=+precio.value/100;
+    // Mercadería que sale sin registrarse: se pierde el costo, no el precio.
+    var costoMes = F*(1-M);
+    var perdidaFuga = costoMes*P;
+    // Precios viejos: sobre esa parte de la facturación se resigna un
+    // tercio del margen. Conservador a propósito.
+    var perdidaPrecio = F*V*M*0.33;
+    // Administración: dos horas por día a un valor de hora modesto.
+    // El tiempo NO entra en la suma de pesos. Ponerle un valor por hora
+    // inventado hacía que en un negocio chico el total diera un absurdo
+    // —más de la mitad de su facturación— y eso quema la sección entera.
+    // Se muestra como lo que es: horas.
+    var horasMes = Math.round(8*4.3);
+
+    $('v-fact').textContent=corto(F);
+    $('v-margen').textContent=margen.value+'%';
+    $('v-fuga').textContent=(+fuga.value).toString().replace('.',',')+'%';
+    $('v-precio').textContent=precio.value+'%';
+    $('r-fuga').textContent=pesos(perdidaFuga);
+    $('r-precio').textContent=pesos(perdidaPrecio);
+    $('r-horas').textContent=horasMes+' hs/mes';
+
+    var mes=perdidaFuga+perdidaPrecio;
+    $('r-anual').textContent=pesos(mes*12);
+    $('r-mes').textContent=pesos(mes)+' por mes';
+    $('r-cierre').textContent = mes>0
+      ? 'Si Cyron te ayuda a recuperar apenas la cuarta parte de eso, son '+pesos(mes*0.25*12)+' por año que se quedan en tu negocio. Más las '+(horasMes*12)+' horas.'
+      : 'Poné arriba cuánto creés que se te va y la cuenta se hace sola.';
+  }
+  [fact,margen,fuga,precio].forEach(function(el){ el.addEventListener('input',calcular); });
+  calcular();
+})();
 
 // ── El formulario arma un WhatsApp ──
 // Sin backend: los datos viajan en el mensaje. Para un negocio chico es
