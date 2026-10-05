@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-AR"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Mercadería que no rota: cómo detectarla y qué hacer</title>
+<meta name="description" content="Cómo calcular la rotación de tu stock, detectar los productos que no se venden y recuperar la plata dormida en el depósito antes de que se venza o se desvalorice."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<link rel="canonical" href="https://cyronweb.netlify.app/mercaderia-que-no-rota-plata-dormida.html"/>
+<meta property="og:type" content="article"/><meta property="og:locale" content="es_AR"/><meta property="og:site_name" content="Cyron"/>
+<meta property="og:title" content="Mercadería que no rota: cómo detectarla y qué hacer"/><meta property="og:description" content="Cómo calcular la rotación de tu stock, detectar los productos que no se venden y recuperar la plata dormida en el depósito antes de que se venza o se desvalorice."/><meta property="og:url" content="https://cyronweb.netlify.app/mercaderia-que-no-rota-plata-dormida.html"/>
+<link rel="icon" type="image/png" href="/cyron96.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--fondo:#050B10;--tarjeta:#0C1620;--borde:rgba(255,255,255,.075);--tx:#EAF6F9;--tx-2:rgba(234,246,249,.70);--tx-3:rgba(234,246,249,.45);--cian:#00E5FF;--azul:#2E7DFF;--grad:linear-gradient(135deg,#00E5FF 0%,#2E7DFF 100%);--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'Archivo',system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(760px 520px at 82% -6%,rgba(0,229,255,.12),transparent 62%),radial-gradient(620px 480px at 2% 30%,rgba(46,125,255,.08),transparent 62%)}
+a{color:var(--cian)}
+.barra{position:sticky;top:0;z-index:10;background:rgba(5,11,16,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--borde)}
+.barra .in{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--tx);font-family:var(--mono);font-weight:600;letter-spacing:.18em}
+.logo img{width:32px;height:32px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav a{color:var(--tx-2);text-decoration:none;font-size:14.5px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#041018!important;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:14.5px}
+main{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+.rot{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cian)}
+h1{font-size:clamp(30px,4.6vw,46px);line-height:1.12;letter-spacing:-.028em;font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(23px,3vw,29px);letter-spacing:-.02em;margin:44px 0 12px;font-weight:800;line-height:1.2}
+p,li{color:var(--tx-2)}
+strong{color:var(--tx)}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+blockquote{margin:18px 0;padding:16px 20px;border-left:3px solid var(--cian);background:rgba(0,229,255,.06);border-radius:10px;font-family:var(--mono);font-size:15px}
+blockquote p{margin:0;color:var(--tx)}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15.5px}
+th,td{border-bottom:1px solid var(--borde);padding:10px 12px;text-align:left}
+th{color:var(--tx);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+td{color:var(--tx-2)}
+.tabla{overflow-x:auto}
+.cta{margin:44px 0;padding:26px;border:1px solid rgba(0,229,255,.22);border-radius:18px;background:var(--tarjeta)}
+.cta p{margin:0 0 16px;color:var(--tx)}
+.meta{color:var(--tx-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+.lista a{display:block;text-decoration:none;padding:22px;border:1px solid var(--borde);border-radius:16px;background:var(--tarjeta);margin:16px 0}
+.lista h2{margin:0 0 8px;font-size:22px;color:var(--tx)}
+.lista p{margin:0}
+footer{border-top:1px solid var(--borde);padding:28px 22px;text-align:center;color:var(--tx-3);font-size:14px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Plata dormida en el depósito: cómo detectar la mercadería que no rota", "description": "Cómo calcular la rotación de tu stock, detectar los productos que no se venden y recuperar la plata dormida en el depósito antes de que se venza o se desvalorice.", "inLanguage": "es-AR", "mainEntityOfPage": "https://cyronweb.netlify.app/mercaderia-que-no-rota-plata-dormida.html", "author": {"@type": "Organization", "name": "Cyron"}, "publisher": {"@type": "Organization", "name": "Cyron", "logo": {"@type": "ImageObject", "url": "https://cyronweb.netlify.app/cyron512.png"}}, "datePublished": "2026-10-05"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es el stock inmovilizado?", "acceptedAnswer": {"@type": "Answer", "text": "Es la mercadería que tenés en el depósito y no se vende. Es capital que pagaste y que no vuelve hasta que se venda."}}, {"@type": "Question", "name": "¿Cada cuánto conviene revisar la rotación?", "acceptedAnswer": {"@type": "Answer", "text": "Una vez por mes, con las tres listas: sin ventas en 90 días, con mucho stock y con vencimiento cercano."}}, {"@type": "Question", "name": "¿Conviene liquidar a pérdida?", "acceptedAnswer": {"@type": "Answer", "text": "Muchas veces sí: recuperar parte de la plata hoy suele ser mejor que tenerla parada o tirarla cuando se vence."}}]}</script>
+</head><body>
+<header class="barra"><div class="in"><a class="logo" href="/"><img src="/cyron96.png" alt="Cyron"/>CYRON</a>
+<nav class="nav"><a href="/">Inicio</a><a href="/blog.html">Blog</a><a class="btn" href="/#contacto">Pedir demostración</a></nav></div></header>
+<main><span class="rot">Blog de Cyron</span><h1>Plata dormida en el depósito: cómo detectar la mercadería que no rota</h1><p class="meta">5 de octubre de 2026 · Cyron, Mendoza</p><p>En casi todos los comercios hay un rincón del depósito con cajas que nadie toca hace meses. No parece un problema porque no hace ruido. Pero es plata: plata que pagaste, que no vuelve, y que en algunos rubros encima se vence.</p>
+<h2>Cuánta plata tenés dormida</h2>
+<blockquote>
+<p>Plata dormida = unidades sin moverse × lo que te costó cada una</p>
+</blockquote>
+<p>Si tenés 40 productos que no se vendieron en tres meses y en promedio te costaron $25.000 cada uno en stock, son <strong>$1.000.000 parados</strong> en el depósito. Con inflación, esa plata además pierde valor cada mes que no se mueve.</p>
+<h2>Cómo medir la rotación</h2>
+<p>La forma más simple es en <strong>días de stock</strong>:</p>
+<blockquote>
+<p>Días de stock = unidades en stock ÷ unidades vendidas por día</p>
+</blockquote>
+<p>Si tenés 120 unidades y vendés 2 por día, tenés stock para 60 días. Si vendés una por semana, para 840. Ese segundo producto es el que tenés que mirar.</p>
+<h2>Las tres listas que conviene revisar cada mes</h2>
+<ol>
+<li><strong>Sin ventas en 90 días:</strong> candidatos a liquidar.</li>
+<li><strong>Con más de 6 meses de stock:</strong> compraste de más.</li>
+<li><strong>Con vencimiento cercano:</strong> en dietéticas y almacenes, lo primero que hay que mover.</li>
+</ol>
+<h2>Qué hacer con lo que no rota</h2>
+<ul>
+<li><strong>Bajarle el precio a tiempo.</strong> Una oferta antes de que se venza recupera más que tirarlo.</li>
+<li><strong>Armar combos</strong> con productos que sí se venden.</li>
+<li><strong>Ponerlo a la vista:</strong> a veces no rota porque nadie lo ve.</li>
+<li><strong>Hablar con el proveedor:</strong> cambio o devolución, si se puede.</li>
+<li><strong>No volver a comprarlo</strong> hasta que se venda lo que hay.</li>
+</ul>
+<h2>Cómo lo resolvemos en Cyron</h2>
+<p>Cyron Full te muestra qué rota y qué es plata dormida, producto por producto y por sucursal, y cuánto capital tenés parado. En los productos con fecha, avisa lo que está por vencer y le aplica el descuento solo, para que salga antes de tener que tirarlo. Y al comprar, te sugiere cuánto pedir según lo que realmente se vendió, para no volver a llenar el depósito de lo mismo.</p>
+<div class="cta"><p>¿Querés verlo con los números de tu negocio?</p><a class="btn" href="/#contacto">Pedí una demostración con tu stock →</a></div><h2>Preguntas frecuentes</h2><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Qué es el stock inmovilizado?</h3><p>Es la mercadería que tenés en el depósito y no se vende. Es capital que pagaste y que no vuelve hasta que se venda.</p><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Cada cuánto conviene revisar la rotación?</h3><p>Una vez por mes, con las tres listas: sin ventas en 90 días, con mucho stock y con vencimiento cercano.</p><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Conviene liquidar a pérdida?</h3><p>Muchas veces sí: recuperar parte de la plata hoy suele ser mejor que tenerla parada o tirarla cuando se vence.</p></main><footer>CYRON · Sistema de gestión y facturación para comercios · Mendoza, Argentina · <a href="/#contacto">Pedir demostración</a></footer></body></html>

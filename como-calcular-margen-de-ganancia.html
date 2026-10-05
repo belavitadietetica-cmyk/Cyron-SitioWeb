@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es-AR"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Cómo calcular el margen de ganancia de un producto</title>
+<meta name="description" content="La diferencia entre recargo y margen de ganancia, cómo calcular cada uno, una tabla de equivalencias y cómo poner el precio para ganar lo que querés."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<link rel="canonical" href="https://cyronweb.netlify.app/como-calcular-margen-de-ganancia.html"/>
+<meta property="og:type" content="article"/><meta property="og:locale" content="es_AR"/><meta property="og:site_name" content="Cyron"/>
+<meta property="og:title" content="Cómo calcular el margen de ganancia de un producto"/><meta property="og:description" content="La diferencia entre recargo y margen de ganancia, cómo calcular cada uno, una tabla de equivalencias y cómo poner el precio para ganar lo que querés."/><meta property="og:url" content="https://cyronweb.netlify.app/como-calcular-margen-de-ganancia.html"/>
+<link rel="icon" type="image/png" href="/cyron96.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--fondo:#050B10;--tarjeta:#0C1620;--borde:rgba(255,255,255,.075);--tx:#EAF6F9;--tx-2:rgba(234,246,249,.70);--tx-3:rgba(234,246,249,.45);--cian:#00E5FF;--azul:#2E7DFF;--grad:linear-gradient(135deg,#00E5FF 0%,#2E7DFF 100%);--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'Archivo',system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(760px 520px at 82% -6%,rgba(0,229,255,.12),transparent 62%),radial-gradient(620px 480px at 2% 30%,rgba(46,125,255,.08),transparent 62%)}
+a{color:var(--cian)}
+.barra{position:sticky;top:0;z-index:10;background:rgba(5,11,16,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--borde)}
+.barra .in{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--tx);font-family:var(--mono);font-weight:600;letter-spacing:.18em}
+.logo img{width:32px;height:32px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav a{color:var(--tx-2);text-decoration:none;font-size:14.5px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#041018!important;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:14.5px}
+main{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+.rot{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cian)}
+h1{font-size:clamp(30px,4.6vw,46px);line-height:1.12;letter-spacing:-.028em;font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(23px,3vw,29px);letter-spacing:-.02em;margin:44px 0 12px;font-weight:800;line-height:1.2}
+p,li{color:var(--tx-2)}
+strong{color:var(--tx)}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+blockquote{margin:18px 0;padding:16px 20px;border-left:3px solid var(--cian);background:rgba(0,229,255,.06);border-radius:10px;font-family:var(--mono);font-size:15px}
+blockquote p{margin:0;color:var(--tx)}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15.5px}
+th,td{border-bottom:1px solid var(--borde);padding:10px 12px;text-align:left}
+th{color:var(--tx);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+td{color:var(--tx-2)}
+.tabla{overflow-x:auto}
+.cta{margin:44px 0;padding:26px;border:1px solid rgba(0,229,255,.22);border-radius:18px;background:var(--tarjeta)}
+.cta p{margin:0 0 16px;color:var(--tx)}
+.meta{color:var(--tx-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+.lista a{display:block;text-decoration:none;padding:22px;border:1px solid var(--borde);border-radius:16px;background:var(--tarjeta);margin:16px 0}
+.lista h2{margin:0 0 8px;font-size:22px;color:var(--tx)}
+.lista p{margin:0}
+footer{border-top:1px solid var(--borde);padding:28px 22px;text-align:center;color:var(--tx-3);font-size:14px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo calcular el margen de ganancia de un producto (y por qué no es lo mismo que el recargo)", "description": "La diferencia entre recargo y margen de ganancia, cómo calcular cada uno, una tabla de equivalencias y cómo poner el precio para ganar lo que querés.", "inLanguage": "es-AR", "mainEntityOfPage": "https://cyronweb.netlify.app/como-calcular-margen-de-ganancia.html", "author": {"@type": "Organization", "name": "Cyron"}, "publisher": {"@type": "Organization", "name": "Cyron", "logo": {"@type": "ImageObject", "url": "https://cyronweb.netlify.app/cyron512.png"}}, "datePublished": "2026-10-05"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo saco el porcentaje de ganancia de un producto?", "acceptedAnswer": {"@type": "Answer", "text": "Restá el costo al precio de venta y dividí ese resultado por el precio de venta. Eso es el margen."}}, {"@type": "Question", "name": "¿Qué margen es bueno para un comercio?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del rubro. Lo importante es que, sumando todas las ventas del mes, cubras tus costos fijos: es lo que mide el punto de equilibrio."}}, {"@type": "Question", "name": "¿Por qué gano menos de lo que calculé?", "acceptedAnswer": {"@type": "Answer", "text": "Casi siempre por el recargo confundido con margen, por comisiones y mermas, o por precios que quedaron viejos."}}]}</script>
+</head><body>
+<header class="barra"><div class="in"><a class="logo" href="/"><img src="/cyron96.png" alt="Cyron"/>CYRON</a>
+<nav class="nav"><a href="/">Inicio</a><a href="/blog.html">Blog</a><a class="btn" href="/#contacto">Pedir demostración</a></nav></div></header>
+<main><span class="rot">Blog de Cyron</span><h1>Cómo calcular el margen de ganancia de un producto (y por qué no es lo mismo que el recargo)</h1><p class="meta">5 de octubre de 2026 · Cyron, Mendoza</p><p>"A todo le pongo un 50% y listo." Es una de las frases más comunes en un mostrador, y una de las que más plata hace perder sin que nadie lo note. Porque un 50% de recargo no es un 50% de ganancia.</p>
+<h2>Recargo y margen: la diferencia</h2>
+<p>Un producto te cuesta $1.000 y lo vendés a $1.500. Ganás $500.</p>
+<ul>
+<li><strong>Recargo:</strong> la ganancia sobre el costo. $500 ÷ $1.000 = <strong>50%</strong>.</li>
+<li><strong>Margen:</strong> la ganancia sobre el precio de venta. $500 ÷ $1.500 = <strong>33,3%</strong>.</li>
+</ul>
+<p>El margen es el que importa, porque es la parte de cada venta que realmente te queda.</p>
+<h2>Tabla de equivalencias</h2>
+<div class="tabla"><table>
+<thead>
+<tr>
+<th>Si le ponés este recargo</th>
+<th>Tu margen real es</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25%</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>30%</td>
+<td>23,1%</td>
+</tr>
+<tr>
+<td>40%</td>
+<td>28,6%</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>33,3%</td>
+</tr>
+<tr>
+<td>60%</td>
+<td>37,5%</td>
+</tr>
+<tr>
+<td>80%</td>
+<td>44,4%</td>
+</tr>
+<tr>
+<td>100%</td>
+<td>50%</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Cómo poner el precio para ganar el margen que querés</h2>
+<blockquote>
+<p>Precio = costo ÷ (1 − margen buscado)</p>
+</blockquote>
+<p>Si un producto te cuesta $1.000 y querés un margen del 35%:</p>
+<blockquote>
+<p>$1.000 ÷ 0,65 = <strong>$1.538</strong></p>
+</blockquote>
+<h2>Los costos que se comen el margen sin que los veas</h2>
+<ul>
+<li><strong>Comisiones</strong> de tarjeta, Mercado Pago o la plataforma con la que cobrás.</li>
+<li><strong>Impuestos:</strong> si sos responsable inscripto, calculá el margen sobre el precio sin IVA.</li>
+<li><strong>Mermas:</strong> lo que se rompe, se vence o se pierde al fraccionar.</li>
+<li><strong>Envases y bolsas.</strong></li>
+<li><strong>El precio viejo:</strong> si tu proveedor aumentó y vos todavía no actualizaste, estás vendiendo con un margen que ya no existe.</li>
+</ul>
+<h2>Cómo lo resolvemos en Cyron</h2>
+<p>Cyron Full calcula el costo y el margen real de cada cosa que vendés, con los precios de compra que vas cargando, y te avisa qué productos quedaron con el precio viejo. Así ves qué te deja plata y qué solo mueve la caja.</p>
+<div class="cta"><p>¿Querés verlo con los números de tu negocio?</p><a class="btn" href="/#contacto">Pedí una demostración con tus productos →</a></div><h2>Preguntas frecuentes</h2><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Cómo saco el porcentaje de ganancia de un producto?</h3><p>Restá el costo al precio de venta y dividí ese resultado por el precio de venta. Eso es el margen.</p><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Qué margen es bueno para un comercio?</h3><p>Depende del rubro. Lo importante es que, sumando todas las ventas del mes, cubras tus costos fijos: es lo que mide el punto de equilibrio.</p><h3 style="font-size:18px;margin:22px 0 6px;color:var(--tx)">¿Por qué gano menos de lo que calculé?</h3><p>Casi siempre por el recargo confundido con margen, por comisiones y mermas, o por precios que quedaron viejos.</p></main><footer>CYRON · Sistema de gestión y facturación para comercios · Mendoza, Argentina · <a href="/#contacto">Pedir demostración</a></footer></body></html>
