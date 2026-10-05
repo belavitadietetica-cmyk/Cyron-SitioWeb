@@ -478,6 +478,24 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
 }
 @media(max-width:560px){.pasos{grid-template-columns:1fr}.dos{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.btn:hover,.mod:hover{transform:none}}
+
+/* ── WHATSAPP DIRECTO ──
+   Para el que prefiere escribir sin llenar el formulario. Fijo abajo a la
+   derecha, por debajo de la ventana de detalle (capa 80) y por encima del
+   resto. El ícono es un globo de charla propio (no el logo de WhatsApp). */
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:70;
+  display:inline-flex;align-items:center;gap:10px;padding:13px 19px 13px 15px;border-radius:999px;
+  background:#25D366;color:#05210F;font-family:var(--sans);font-weight:700;font-size:15px;line-height:1;text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.10);
+  opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .18s ease,box-shadow .18s ease}
+.wa.visible{opacity:1;transform:none}
+.wa:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.10)}
+.wa:focus-visible{outline:3px solid var(--cian);outline-offset:3px}
+.wa svg{width:22px;height:22px;flex:none}
+.wa .wa-largo{display:none}
+@media (min-width:760px){ .wa .wa-largo{display:inline} .wa .wa-corto{display:none} }
+@media (max-width:759px){ body{padding-bottom:84px} }   /* que el botón no tape el final de la página */
+@media (prefers-reduced-motion:reduce){ .wa{transition:none;transform:none} }
 </style>
 </head>
 <body>
@@ -1063,6 +1081,14 @@ footer{border-top:1px solid var(--borde);padding:36px 0 48px}
   </div>
 </div>
 
+<!-- WhatsApp directo: el número y el enlace los pone el script (variable WHATSAPP). Sin script, lleva al formulario. -->
+<a class="wa" id="wa-directo" href="#contacto" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.6a8.4 8.4 0 1 1 15.6-4.3z"/>
+    <path d="M8.6 11.7h.01M12 11.7h.01M15.4 11.7h.01"/>
+  </svg>
+  <span class="wa-corto">WhatsApp</span><span class="wa-largo">Escribime por WhatsApp</span>
+</a>
 <script>
 // ── Los módulos, con el rubro al que aplican ──
 // "todos" no es un rubro: es lo que aplica a cualquier negocio.
@@ -1391,7 +1417,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&det.classLi
 // ── El formulario arma un WhatsApp ──
 // Sin backend: los datos viajan en el mensaje. Para un negocio chico es
 // mejor que un formulario que manda un mail que nadie mira.
-var WHATSAPP='5492616276028'; // 261 627-6028 · formato internacional, sin + ni espacios
+var WHATSAPP='5492612571757'; // 261 257-1757 · formato internacional, sin + ni espacios
+
+// ── El botón de WhatsApp directo, con el MISMO número ──
+// Para el que prefiere escribir sin llenar nada. Si se cambia el número,
+// se cambia arriba y quedan bien el botón y el formulario.
+(function(){
+  var a=document.getElementById('wa-directo'); if(!a)return;
+  a.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Hola! Vi la web de Cyron y quiero saber más.');
+  a.target='_blank'; a.rel='noopener';
+  setTimeout(function(){ a.classList.add('visible'); },600);
+})();
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault();
   var v=function(id){return (document.getElementById(id).value||'').trim();};
