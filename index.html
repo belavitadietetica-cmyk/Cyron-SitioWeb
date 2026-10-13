@@ -460,6 +460,8 @@ h3{font-size:clamp(20px,1.7vw,24px);letter-spacing:-.018em;line-height:1.2}
 /* ══ CASOS ══ */
 .casos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px)}
 .caso{background:var(--blanco);border:1px solid var(--linea);border-radius:18px;padding:clamp(24px,3vw,36px)}
+.caso-logo{display:block;height:64px;width:auto;margin-bottom:18px}
+.caso-logo.icono{border-radius:14px}
 .caso .lugar{font-size:15.5px;color:var(--texto-3);margin-bottom:6px}
 .caso h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:12px}
 .caso p{color:var(--texto-2)}
@@ -906,12 +908,14 @@ h3{font-size:clamp(20px,1.7vw,24px);letter-spacing:-.018em;line-height:1.2}
     </div>
     <div class="casos">
       <article class="caso">
+        <img class="caso-logo icono" src="/img/clientes/bela-vita.png" alt="" width="74" height="64" loading="lazy"/>
         <div class="lugar">Dietética en Mendoza</div>
         <h3>Bela Vita Dietética</h3>
         <p>Acá nació Cyron. Con él venden, facturan, controlan el stock de sus locales y cierran la caja todos los días. Cada función nueva se prueba primero ahí, en un negocio que depende de que no falle.</p>
         <div class="cifras"><div><b>2</b><span>sucursales</span></div><div><b>1.000+</b><span>productos</span></div></div>
       </article>
       <article class="caso">
+        <img class="caso-logo" src="/img/clientes/jc-ferreteria.png" alt="" width="118" height="64" loading="lazy"/>
         <div class="lugar">Ferretería en Luján de Cuyo, Mendoza</div>
         <h3>JC Ferretería</h3>
         <p>El primer comercio que usó Cyron fuera de Bela Vita. Catálogo completo cargado y cuenta corriente para los clientes que compran a cuenta.</p>
