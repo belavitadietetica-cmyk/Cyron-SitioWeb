@@ -1,0 +1,56 @@
+/* Blog de Cyron · mismo sistema visual que la página principal:
+   Bricolage Grotesque para leer y JetBrains Mono para números y tablas. */
+@font-face{font-family:'Bricolage';src:url(/fuentes/bricolage-grotesque.woff2) format('woff2');font-weight:200 800;font-display:swap}
+@font-face{font-family:'JB Mono';src:url(/fuentes/jetbrains-mono.woff2) format('woff2');font-weight:100 800;font-display:swap}
+:root{
+  --tinta:#0B1424;--tinta-3:#1A2E4A;--sobre-tinta:#EAF2F8;--sobre-tinta-2:rgba(234,242,248,.74);--sobre-tinta-3:rgba(234,242,248,.52);
+  --papel:#F2F5F8;--blanco:#FFFFFF;--texto:#0E1A2C;--texto-2:#43536A;--texto-3:#5E6E84;--linea:#D8E0E8;
+  --cian:#22CCEB;--cian-osc:#066F8D;
+  --tx:var(--texto);--tx-2:var(--texto-2);--tx-3:var(--texto-3);--borde:var(--linea);--tarjeta:var(--blanco);
+  --sans:'Bricolage',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JB Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papel);color:var(--texto);font-family:var(--sans);font-size:18.5px;line-height:1.7;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+a{color:var(--cian-osc);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--cian);outline-offset:3px;border-radius:6px}
+
+.barra{position:sticky;top:0;z-index:10;background:rgba(11,20,36,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--sobre-tinta)}
+.barra .in{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,40px);height:68px;display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--sobre-tinta);font-weight:780;font-size:20px;letter-spacing:.14em}
+.logo img{width:34px;height:34px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:24px}
+.nav a{color:var(--sobre-tinta-2);text-decoration:none;font-size:16px}
+.nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#062B14!important;font-weight:650;text-decoration:none;padding:12px 18px;border-radius:12px;font-size:16px}
+.btn:hover{background:#2EE072}
+@media(max-width:640px){.nav a:not(.btn){display:none}}
+
+main{max-width:760px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(18px,4vw,24px) 90px}
+.rot{display:inline-block;font-size:15px;font-weight:650;color:var(--cian-osc);text-decoration:none}
+h1{font-size:clamp(34px,5.2vw,54px);line-height:1.04;letter-spacing:-.035em;font-weight:790;margin:12px 0 20px;text-wrap:balance}
+h2{font-size:clamp(25px,3vw,32px);letter-spacing:-.025em;margin:52px 0 14px;font-weight:760;line-height:1.15;text-wrap:balance}
+h3{letter-spacing:-.015em}
+p,li{color:var(--texto-2)}
+strong{color:var(--texto)}
+ul,ol{padding-left:24px}
+li{margin:8px 0}
+li::marker{color:var(--cian-osc)}
+.meta{color:var(--texto-3);font-size:15.5px}
+blockquote{margin:24px 0;padding:18px 22px;border-left:4px solid var(--cian-osc);background:var(--blanco);border-radius:0 12px 12px 0;font-family:var(--mono);font-size:15.5px;line-height:1.6}
+blockquote p{margin:0;color:var(--texto)}
+.tabla{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:16px;background:var(--blanco);border-radius:12px;overflow:hidden}
+th,td{border-bottom:1px solid var(--linea);padding:12px 14px;text-align:left}
+th{color:var(--texto);font-weight:700;font-size:15px;background:#E8EEF4}
+td{color:var(--texto-2);font-family:var(--mono);font-size:15px}
+.cta{margin:52px 0;padding:clamp(24px,4vw,34px);border-radius:18px;background:var(--tinta);color:var(--sobre-tinta)}
+.cta p{margin:0 0 18px;color:#fff;font-size:clamp(21px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.lista a{display:block;text-decoration:none;padding:24px 0;border-top:1px solid var(--linea)}
+.lista a:last-child{border-bottom:1px solid var(--linea)}
+.lista h2{margin:0 0 8px;font-size:clamp(22px,2.4vw,26px);color:var(--texto)}
+.lista a:hover h2{color:var(--cian-osc)}
+.lista p{margin:0}
+footer{background:var(--tinta);color:var(--sobre-tinta-3);padding:36px 22px 48px;text-align:center;font-size:15.5px}
+footer a{color:var(--sobre-tinta-2)}
